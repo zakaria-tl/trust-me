@@ -1,0 +1,114 @@
+@font-face{
+    src: url(Cairo-arab.ttf);
+    font-family: cairo;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cairo;
+}
+
+body{
+    height: 100vh;
+    max-height: 100vh;
+    background: #000000;
+}
+
+#show{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    outline: none;
+    padding: 1px 30px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+#show:hover{
+    background: rgb(117, 117, 117);
+}
+
+#video{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 400px;
+    height: 400px;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: 1s;
+}
+
+#video img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: video 1s infinite steps(2);
+}
+
+#audio{
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.zakaria{
+    color: #fff;
+    margin: 20px;
+    position: absolute;
+    display: block;
+    letter-spacing: 1.5px;
+}
+
+
+@keyframes video{
+    100%{
+        transform: scaleX(-3);
+    }
+}
+
+@media (max-width: 1000px){
+    #video{
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+div.loaderContainer{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    z-index: 11;
+    display: grid;
+    place-items: center;
+    transition: .3s;
+}
+
+div.loaderContainer .loader{
+    aspect-ratio: 1;
+    width: 70px;
+    border: 3px solid rgba(78, 78, 78, 0.233);
+    border-top:  3px solid rgb(255, 255, 255) !important;
+    border-radius: 50%;
+    animation: loader 1s infinite linear;
+}
+
+@keyframes loader {
+    100%{
+        transform: rotate(360deg);
+    }
+}
